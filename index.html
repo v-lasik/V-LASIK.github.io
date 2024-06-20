@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta property="og:title" content="V-LASIK: Consistent Glasses-Removal from Videos Using Synthetic Data"/>
+    <meta property="og:url" content="https://v-lasik.github.io"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+
+
+    <title>V-LASIK: Consistent Glasses-Removal from Videos Using Synthetic Data</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQ3PYPGJRH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PQ3PYPGJRH');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+<!--    <link rel="icon" href="media/figures/cute-monkey-cartoon-face-simple-vector-48682892.png ">-->
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+
+<body>
+
+<section class="publication-header">
+    <div class="hero-body">
+        <div class="container is-max-widescreen">
+            <!-- <div class="columns is-centered"> -->
+            <div class="column has-text-centered">
+                <h1 class="title is-1 publication-title">V-LASIK:</h1>
+                <h2 class="title is-2 publication-title">Consistent Glasses-Removal from Videos Using Synthetic Data</h2>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="publication-author-block">
+
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+<!--
+                    to anonimyze:
+                    1. remove author names (till "..indicates equal...")
+                    2. change link to video.
+                    3. remove bibtex reference.
+-->
+        <!--div class="column has-text-centered">
+              <div class="is-size-4 publication-authors">
+                <span class="author-block">Conference Name 2024</span>
+              </div>
+        </div-->
+                    
+<!--
+        <div class="column has-text-centered">
+            <div class="is-size-4 publication-authors">
+                <span class="author-block">
+                    <a href="" target="_blank">name</a>*,
+                    <a href="" target="_blank">name2</a>,
+                    <br/>
+                    <a href="" target="_blank">name3</a>,
+                    <a href="" target="_blank">name4</a></span>
+                    <sup></sup></span>
+            </div>
+        </div>
+
+        <div class="is-size-5 publication-authors">
+            <span class="author-block">University1, University2</span>
+        </div>
+    -->
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <span class="link-block">
+                                <!--a href="https://arxiv.org/abs/XXX" target="_blank"
+                                class="external-link button is-normal is-rounded"-->
+                                <a href="V_LASIK_anonymous.pdf" target="_blank" class="external-link button is-normal is-rounded">
+                                <span class="icon">
+                                    <i class="ai ai-arxiv"></i>
+                                </span>
+                                <span>Paper</span>
+                                </a>
+                            </span>
+
+                            <span class="link-block">
+                                <a href="https://github.com/v-lasik/v-lasik-code" target="_blank"
+                                class="external-link button is-normal is-rounded">
+                                <span class="icon">
+                                <i class="fab fa-github"></i>
+                                </span>
+                                <span>Code</span>
+                                </a>
+                            </span>
+
+<!--                            <span class="link-block">-->
+<!--                            <a href="" target="_blank"-->
+<!--                                class="external-link button is-normal is-rounded">-->
+<!--                                <span class="icon">-->
+<!--                                <i class="fab fa-youtube"></i>-->
+<!--                                </span>-->
+<!--                                <span>Video</span>-->
+<!--                                </a>-->
+<!--                            </span>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+
+            <div class="column is-centered has-text-centered">
+                  <img src="media/figures/teaser_fp_short.jpg" alt="Motion Transfer" width="80%">
+            </div>
+            <h2 class="subtitle has-text-justified">
+                <b>Motion transfer.</b> The top row displays a leader performing a walking motion. The left column showcases sample frames of four followers, each engaged in a different motion. 
+                The central block presents the output motion, where the outline of the leader's motion (e.g., leading leg) is transferred to the followers and integrated with their distinct motifs. 
+                Note the alignment of the steps for the leader and the output motions.  
+                Our motion transfer is conducted by manipulating self-attention latent features in a zero-shot fashion.
+            </h2>
+
+        </div>
+    </div>
+</section> -->
+
+<section class="section hero">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+<!--            <div class="column is-centered has-text-centered">-->
+                <video playsinline autoplay muted loop width="50%">
+                    <source src="media/videos/results/glasses/Bks_ZCQS9R4_3_e.mp4"
+                            type="video/mp4">
+                </video>
+<!--            </div>-->
+<!--            <div class="column is-centered has-text-centered">-->
+                <video poster="" id="tree" playsinline autoplay muted loop width="50%">
+                    <source src="media/videos/results/glasses/lQ_Phff18gk_10_e.mp4"
+                                type="video/mp4">
+                </video>
+<!--            </div>-->
+<!--            <div class="column is-centered has-text-centered">-->
+                    <video poster="" id="tree" playsinline autoplay muted loop width="50%">
+                    <source src="media/videos/results/glasses/hV_HDyz7NfQ_0_e.mp4"
+                                type="video/mp4">
+                </video>
+<!--            </div>-->
+        </div>
+        <p>Our method receives an input video of a person wearing glasses, and consistently removes the glasses, while preserving the original content and
+identity of that person. As demonstrated in the examples above, our method successfully removes the glasses even when there are eye blinks, heavy makeup, and reflections.
+            More examples are presented below. </p>
+    </div>
+</section>
+
+<!-- Video + Abstract -->
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+<!--                <div class="item">-->
+<!--                    <p style="margin-bottom: 30px">-->
+                        <!-- anonymous-->
+<!--                        add videos-->
+<!--                        <iframe width="760" height="428" src="https://www.youtube.com/embed/s5oo3sKV0YU"  -->
+<!--                                title="YouTube video player" frameborder="0"-->
+<!--                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"-->
+<!--                                allowfullscreen></iframe>-->
+
+<!--                    </p>-->
+<!--                </div>-->
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Diffusion-based generative models have recently shown remarkable image and video editing capabilities.
+                        However, local video editing, particularly removal of small attributes like glasses, remains a challenge.
+                        Existing methods either alter the videos excessively, generate unrealistic artifacts, or fail to perform the requested edit consistently throughout the video.
+                        In this work, we focus on consistent and identity-preserving removal of glasses in videos, using it as a case study for consistent local attribute removal in videos.
+                        Due to the lack of paired data, we adopt a weakly supervised approach and generate synthetic imperfect data, using an adjusted pretrained diffusion model.
+                        We show that despite data imperfection, by learning from our generated data and leveraging the prior of pretrained diffusion models, our model is able to perform the desired edit consistently while preserving the original video content.
+                        Furthermore, we exemplify the generalization ability of our method to other local video editing tasks by applying it successfully to facial sticker-removal.
+                        Our approach demonstrates significant improvement over existing methods, showcasing the potential of leveraging synthetic data and strong video priors for local video editing tasks.
+                    </p>
+                </div>
+             </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Pipeline -->
+<section class="hero is-small is-light">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="content has-text-centered">
+                <h2 class="title is-3">Pipeline</h2>
+                <img src="media/figures/overview.png">
+            </div>
+            <div class="content">
+                <p>
+                    <b>Method overview:</b> <br>
+                    <p>
+                    <b>Step 1:</b> we create an imperfect synthetic paired dataset by generating glasses masks for each video frame and inpainting it.
+                    We inpaint each frame using an adjusted version ControlNet inpaint.
+                    We replace the self-attention layers with cross-frame attention (cf attn) and use blending between the generated latent images and the noised masked original latent images at each diffusion step.
+                    The generated data in the first step is imperfect; e.g. in the middle frame, the person blinks, however its generated pair has open eyes.
+                    Nevertheless, the data is good enough for finetuning an image-to-image diffusion model and achieving satisfactory results, due to the strong prior of the model.
+                    </p>
+                    <p>
+                    <b>Step 2:</b> Given our trained model for the task of removing glasses from images, we incorporate it with a motion prior module to generate temporally consistent videos without glasses from previously unseen videos.
+                    To obtain the original frame colors, at each diffusion step we blend the generated frames with the noised original masked latent images, and before decoding, we apply an Inside-Out Normalization (ION), to better align the statistics within the masked area and the area outside of the mask.
+                    </p>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Comparisons -->
+<section class="hero is-small ">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="content has-text-centered">
+                <h2 class="title is-3">Comparisons</h2>
+            </div>
+            <div class="content">
+                <p>
+                    We compare our method with different video editing and inpainting methods.
+                    When given an input video, some methods remove the glasses from it,
+                    however they either generate deformations and unrealistic artifacts, or do not preserve the identity,
+                    eyelids positions, or temporal consistency of the video. Other methods simply do not remove the glasses at all.
+                    In contrast, our method successfully removes the glasses while preserving the identity, realism and temporal consistency of the video.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero is-small ">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+<!--            First example-->
+             <div class="columns is-centered is-four-fifths">
+                 <div class="column is-centered ">
+                     <p>Original</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/59TJ/original_e.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered">
+                    <p>TokenFlow</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/59TJ/TokenFlow_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+                 <div class="column is-centered">
+                     <p>RAVE</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/59TJ/RAVE_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="columns is-centered is-four-fifths">
+                 <div class="column is-centered ">
+                    <p>FGT</p>
+                     <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/59TJ/FGT_e.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered">
+                    <p>ProPainter</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/59TJ/ProPainter_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+                 <div class="column is-centered">
+                     <p><b>Ours</b></p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/59TJ/ours_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+<!--            Second example-->
+            <div class="columns is-centered is-four-fifths">
+                 <div class="column is-centered ">
+                     <p>Original</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/Xb/original_e.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered">
+                    <p>TokenFlow</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/Xb/TokenFlow_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+                 <div class="column is-centered">
+                     <p>RAVE</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/Xb/RAVE_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="columns is-centered is-four-fifths">
+                 <div class="column is-centered ">
+                     <p>FGT</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/Xb/FGT_e.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered">
+                    <p>ProPainter</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/Xb/ProPainter_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+                 <div class="column is-centered">
+                     <p><b>Ours</b></p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/Xb/ours_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+<!--            third example-->
+                        <div class="columns is-centered is-four-fifths">
+                 <div class="column is-centered ">
+                     <p>Original</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/YY/original_e.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered">
+                    <p>TokenFlow</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/YY/TokenFlow_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+                 <div class="column is-centered">
+                     <p>RAVE</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/YY/RAVE_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="columns is-centered is-four-fifths">
+                 <div class="column is-centered ">
+                     <p>FGT</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/YY/FGT_e.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="column is-centered">
+                    <p>ProPainter</p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/YY/ProPainter_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+                 <div class="column is-centered">
+                     <p><b>Ours</b></p>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="100%">
+                        <source src="media/videos/comparisons/YY/ours_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Glasses removal results -->
+<section class="section hero is-small is-light">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="content has-text-centered">
+                <h2 class="title is-3">More glasses-removal results</h2>
+            </div>
+        </div>
+    </div>
+<!--</section>-->
+<!--<section class="section hero">-->
+<!--    <div class="container is-max-desktop">-->
+<!--        <div id="results-carousel" class="carousel results-carousel column is-centered is-four-fifths">-->
+        <div id="results-carousel" class="carousel results-carousel column is-four-fifths">
+
+            <div class="item video column is-centered results-item">
+                <video playsinline autoplay controls muted loop class="is-centered">
+                    <source src="media/videos/results/glasses/oPoq6CvPFIU_3_e.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+            <div class="item video column is-centered results-item">
+                <video playsinline autoplay controls muted loop class="is-centered">
+                    <source src="media/videos/results/glasses/1AzV0D0zZvQ_13_e.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+            <div class="item video column is-centered results-item">
+                <video playsinline autoplay controls muted loop class="is-centered">
+                    <source src="media/videos/results/glasses/VZQo9g86Q5c_1_e.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+            <div class="item video column is-centered results-item">
+                <video playsinline autoplay controls muted loop class="is-centered">
+                    <source src="media/videos/results/glasses/sol9FOaKTr0_12_e.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+            <div class="item video column is-centered results-item">
+                <video playsinline autoplay controls muted loop class="is-centered">
+                    <source src="media/videos/results/glasses/IR8SifTNQE0_9_e.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+            <div class="item video column is-centered results-item">
+                <video playsinline autoplay controls muted loop class="is-centered">
+                    <source src="media/videos/results/glasses/yZALOlw3NQ0_1_e.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+            <div class="item video column is-centered results-item">
+                <video playsinline autoplay controls muted loop class="is-centered">
+                    <source src="media/videos/results/glasses/h5jOAw57OXM_4_e.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+            <div class="item video column is-centered results-item">
+                <video playsinline autoplay controls muted loop class="is-centered">
+                    <source src="media/videos/results/glasses/pIHTnpXmRKw_52_e.mp4"
+                                type="video/mp4">
+                </video>
+            </div>
+            <div class="item video column is-centered results-item">
+                <video playsinline autoplay controls muted loop class="is-centered">
+                    <source src="media/videos/results/glasses/6Vqe-_e-U-U_2_e.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+            <div class="item video column is-centered results-item">
+                <video playsinline autoplay controls muted loop class="is-centered">
+                    <source src="media/videos/results/glasses/qZ1pNa9SVW8_12_e.mp4"
+                            type="video/mp4">
+                </video>
+            </div>
+            <div class="item video column is-centered results-item">
+                    <video playsinline autoplay controls muted loop class="is-centered">
+                    <source src="media/videos/results/glasses/h9pDkfDxLyA_155_e.mp4"
+                                type="video/mp4">
+                </video>
+            </div>
+        </div>
+<!--        <p> More results </p>-->
+<!--    </div>-->
+</section>
+
+<!-- Stickers -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="content has-text-centered">
+                <h2 class="title is-3">Stickers</h2>
+            </div>
+            <div class="content">
+                <p>
+                   To show our method works for a different use-case, we generate a synthetic dataset of videos with stickers on faces, imitating real facial stickers, tattoos or synthetic features added by social-media apps, and show that our method is able to remove them.
+                    As shown in the results below, our model is able to seamlessly remove the stickers from the videos after being trained on our synthetic data.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+        <div id="results-carousel" class="carousel results-carousel column">
+            <div class="item video column is-centered">
+                <div class="column is-centered has-text-centered">
+                    <video poster="" id="tree" playsinline autoplay muted loop width="50%">
+                        <source src="media/videos/results/stickers/0_s4PQHfh4SV4_6_e.mp4"
+                                type="video/mp4">
+                    </video>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="50%">
+                        <source src="media/videos/results/stickers/0_s4PQHfh4SV4_6_ours_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+                </div>
+            <div class="item video column is-centered">
+                <div class="column is-centered has-text-centered">
+                    <video poster="" id="tree" playsinline autoplay muted loop width="50%">
+                        <source src="media/videos/results/stickers/0_oPoq6CvPFIU_7_e.mp4"
+                                type="video/mp4">
+                    </video>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="50%">
+                        <source src="media/videos/results/stickers/0_oPoq6CvPFIU_7_ours_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+                </div>
+
+            <div class="item video column is-centered">
+                <div class="column is-centered has-text-centered">
+                    <video poster="" id="tree" playsinline autoplay muted loop width="50%">
+                        <source src="media/videos/results/stickers/0_o_loGu4viQE_10_e.mp4"
+                                type="video/mp4">
+                    </video>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="50%">
+                        <source src="media/videos/results/stickers/0_o_loGu4viQE_10_ours_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+                </div>
+            <div class="item video column is-centered">
+                <div class="column is-centered has-text-centered">
+                    <video poster="" id="tree" playsinline autoplay muted loop width="50%">
+                        <source src="media/videos/results/stickers/0_WXyGorVqLBA_0_e.mp4"
+                                type="video/mp4">
+                    </video>
+                    <video poster="" id="tree" playsinline autoplay muted loop width="50%">
+                        <source src="media/videos/results/stickers/0_WXyGorVqLBA_0_ours_e.mp4"
+                                    type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            </div>
+            <p>left: input from our synthetic dataset, right: output of our model.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- BibTeX -->
+
+<!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>
+            @inproceedings{..}
+        </code></pre>
+    </div>
+</section> -->
+
+
+<footer class="footer">
+    <!--  <div class="container">
+       <div class="content has-text-centered">
+         <a class="icon-link"
+         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+         <i class="fas fa-file-pdf"></i>
+       </a>
+       <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+         <i class="fab fa-github"></i>
+       </a>
+     </div> -->
+    <div class="columns is-centered">
+        <div class="column is-8">
+            <div class="content">
+                <p>
+                    This website is licensed under a <a rel="license"
+                                                        href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                    Commons Attribution-ShareAlike 4.0 International License</a>.
+                </p>
+                <p>
+                    Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If
+                    you want to reuse their <a
+                        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them
+                    appropriately.
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+</footer>
+
+
+<script type="text/javascript">
+    var sc_project = 12351448;
+    var sc_invisible = 1;
+    var sc_security = "c676de4f";
+</script>
+<script type="text/javascript"
+        src="https://www.statcounter.com/counter/counter.js"
+        async></script>
+<noscript>
+    <div class="statcounter"><a title="Web Analytics"
+                                href="https://statcounter.com/" target="_blank"><img
+            class="statcounter"
+            src="https://c.statcounter.com/12351448/0/c676de4f/1/"
+            alt="Web Analytics"></a></div>
+</noscript>
+<!-- End of Statcounter Code -->
+
+</body>
+</html>
